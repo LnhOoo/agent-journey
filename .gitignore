@@ -1,0 +1,49 @@
+# .env —— 这里面装的是你的 API 密钥，**绝对不能提交到 GitHub**
+# 一旦被爬虫扫到，别人会用你的密钥刷钱。这是新手最常见的严重事故。
+
+.env
+*.env
+!.env.example
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------- Java ----------
+target/
+build/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+.gradle/
+
+# ---------- IDE ----------
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ---------- 系统 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- 运行产物 ----------
+*.log
+logs/
+data/
+chroma/
+.vectorstore/
+*.sqlite
+*.db
