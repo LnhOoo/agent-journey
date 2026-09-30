@@ -6,6 +6,37 @@
 
 ---
 
+## ⚠ 动手之前：必须站在仓库目录里
+
+**所有 git 命令都必须在 `agent-journey` 这个目录里执行。** 在家目录或者任何别的地方执行，都会看到这个报错：
+
+```
+fatal: not a git repository (or any of the parent directories): .git
+```
+
+**这不是命令写错了，是站错了地方。** git 只认「当前目录及其父目录」，它不会满硬盘帮你找仓库。
+
+正确的做法（推荐）：在资源管理器里打开这个文件夹
+
+```
+D:\WorkBuddy工作台\2026-09-30-07-52-56\agent-journey
+```
+
+在**空白处右键 → Open Git Bash here**。这样一打开就在正确位置，不用输路径。
+
+如果终端已经开着，就用 `cd` 过去：
+
+```bash
+cd "/d/WorkBuddy工作台/2026-09-30-07-52-56/agent-journey"
+pwd                      # 确认路径对了
+git log --oneline        # 能看到 3 行提交记录，说明位置正确
+```
+
+> **养成习惯：进目录后先 `pwd` 确认位置，再执行 git 命令。**
+> 后面每一个 `git add / commit / push`，都要先确认自己在 `agent-journey` 目录里。
+
+---
+
 ## 第一部分：在 GitHub 网站上建一个空仓库
 
 ### 第 1 步 · 注册 / 登录
@@ -151,6 +182,7 @@ git status
 
 | 报错 | 原因 | 怎么解决 |
 |---|---|---|
+| `fatal: not a git repository` | **没有在仓库目录里执行命令**（最常见的错） | 先 `cd` 到 `agent-journey` 目录，用 `pwd` 确认后重试 |
 | `remote: Support for password authentication was removed` | 用了登录密码当密码 | 改用 Personal Access Token |
 | `failed to push some refs` / `! [rejected]` | 建仓库时勾了 README 或 LICENSE | 最省事的办法：删掉这个仓库重建一个空的，重来第 2–8 步 |
 | `src refspec main does not match any` | 本地还没有任何提交 | 先 `git add .` 和 `git commit`，再 push |
